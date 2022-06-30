@@ -1,0 +1,85 @@
+@{
+    ViewData["Title"] = "Habitacion1";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/estilos/estilo1.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="body">
+
+    <h1 class="margenTitulo amarillo fuenteTitulo">SALA 1: EL RECIBIMIENTO</h1>
+
+    @if(ViewBag.Error==true){
+        <h3 class="text-center">Te equivocaste!</h3>
+    }    
+
+    <p class="margen">
+        Al verte aparecer de la nada, en medio de un <span class="gris">ritual</span> de purificación de agua, los sacerdotes se asustan. “¡Detractor de <span class="gris">Dios</span> caído del cielo. Atrapen al <span class="gris">insurgente</span>!"
+
+    <br>
+    Estos rápidamente ordenan tu captura, y tu primera reacción es escapar, no sin antes tomar del piso el reloj para viajar en el tiempo.     
+    <br>
+    <img class="imgHabitacion margen" src="/imgCarousel/slide2.jpg" alt="">
+
+    <br><br>
+    Sin embargo, al dar media vuelta y salir corriendo por un pasillo, te encontrás con una gran puerta cerrada. Esta cuenta con un tablero como un teclado, y una frase, que dice lo siguiente:
+
+    <span class="gris">“La clave está en todas partes!"</span>
+    <br>
+    <img class="imgHabitacion margen" src="/imagenes/puerta.jpg" alt="">
+    </p>
+
+    @if (@Escape.Errores >= 3)
+    {        
+        <details class="margen">
+            <summary>Pista 1</summary>
+            <p class="cursiva">Pensá en dónde estás. Te encontrás en un templo RELIGIOSO.</p>            
+        </details>
+        
+    }
+
+    @if (@Escape.Errores >= 4)
+    {
+        <details>
+            <summary>Pista 2</summary>
+            <p class="cursiva">¿A quién nombran los sacerdotes al verte por primera vez?</p>            
+        </details>  
+    }
+
+    @if (@Escape.Errores >= 5)
+    {
+        <details>
+            <summary>SOLUCIÓN</summary>
+            <p class="cursiva">dios</p>
+        </details>  
+    }
+  
+
+    <form class="margen" method="post" action='@Url.Action("Habitacion", "Escape")'>
+        <p>Ingresa la contraseña para abrir la puerta y escapar del templo:</p> 
+        <input class="form-control" type="text" name="clave" autocomplete="off" required size=25 maxlength="10" width="30px" placeholder="Ingrese la clave..."> 
+        <br>
+        <input type="hidden" name="sala" value='@Escape.EstadoJuego'>
+        <br>
+        <input type="submit" value="Validar" class="btn btn-warning" style="width: 300px;">
+        <input type="reset" value="Restablecer" class="btn btn-secondary"  style="width: 300px;">
+
+    </form>   
+
+    
+</body>
+</html>
+
+
+
+
+
+
+

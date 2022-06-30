@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos/estilo1.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="body">
+    <audio src="/suspenso.mp3" controls="" autoplay="true" hidden="true"></audio>
+    <div class="blockquote text-center margenTitulo">
+        
+        <p>
+            Este es un juego para jugar de manera individual, que creativamente te desafía a pensar. Para disfrutar más la jugabilidad, recomendamos jugar en computadora, preferentemente en el navegador de Google Chrome (que todos sabemos es mejor que el Internet Explorer). 
+            <br>
+            <br>
+            Se te plantearan diferentes problemas, preguntas, y acertijos, para los que tendrás que plantear una solución. En caso de que se te complique alguna consigna, cuando tengas de 3 errores en adelante se te brindarán pistas, que ingeniosamente te ayudarán en su resolución. Si igualmente para el quinto error todavía no encontrás la clave, esta te será proporcionada para pasar de sala, pero se le sumarán 5 minutos al cronómetro que llevará tus tiempos ¡Tené cuidado!
+
+            <br><br>
+            Y ahora ¡a explorar en el pasado!
+
+        </p>
+
+
+        <form class="margen" method="post" action='@Url.Action("Comenzar", "Escape")'>
+            <p>Ingresa tu nombre para comenzar:</p> 
+            <input class="centrar" style="color: black; width:40%;" type="text" autocomplete="off" name="nombre" required size=25 maxlength="20" width="30px" placeholder="Nombre..."> 
+            <br>                   
+            <input type="submit" value="Comenzar" class="btn btn-warning margen" style="width: 300px;">
+            <input type="reset" value="Restablecer" class="btn btn-secondary margen"  style="width: 300px;">
+
+        </form>   
+
+
+        <!-- <a href='@Url.Action("Comenzar", "Escape")'><button class="btn btn-warning margen centrar">COMENZAR</button></a> -->
+        
+    </div>
+
+    
+    
+</body>
+</html>
+

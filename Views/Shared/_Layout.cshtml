@@ -3,34 +3,62 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SalaDeEscape_BuscandoVolver</title>
+    <title>@ViewData["Title"] - SalaEscape</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/SalaDeEscape_BuscandoVolver.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SalaDeEscape.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="/estilos/estilo1.css">
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SalaDeEscape_BuscandoVolver</a>
+<body>    
+    <header>                        
+        <img class="logo" src="/logoNav.png" alt="">        
+        
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-prymary box-shadow mb-3 ">                       
+            <div class="container-fluid">                                  
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="nav flex-grow-1 justify-content-center">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link active amarillo" asp-area="" asp-controller="Home" asp-action="Index">Buscando Volver</a>
+                        </li>                        
+                        <li class="nav-item">
+                            <a class="nav-link amarillo" asp-area="" asp-controller="Home" asp-action="Tutorial">Tutorial</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link amarillo" asp-area="" asp-controller="Escape" asp-action="Index">Jugar</a>
                         </li>
+                        
+                        @if (@Escape.NombreJugador != "")
+                        {
+
+                            <li>
+                                <a class="nav-link amarillo" href="#">JUGADOR: @Escape.NombreJugador</a>
+                            </li>
+                            
+                        }    
+
+                        @if (@Escape.EstadoJuego != 0 && @Escape.Segundos <= 3600){
+
+                            <li>
+                                <a class="nav-link amarillo" href="#">TIEMPO DE JUEGO: <span id="segundos" class="amarillo">@Escape.Segundos</span> segundos</a>
+                            </li>  
+
+                        }   
+                           
                     </ul>
                 </div>
             </div>
         </nav>
+        
     </header>
-    <div class="container">
+
+    <div>    
+    
+    <div class="container body-content">
+
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -38,12 +66,15 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - SalaDeEscape_BuscandoVolver - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - Mariano Cáceres, Tiago Coladonato, Tomás Rempel - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+    </div>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    
 </body>
 </html>

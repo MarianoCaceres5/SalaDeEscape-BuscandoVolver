@@ -1,0 +1,81 @@
+@{
+    ViewData["Title"] = "Habitacion2";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/estilos/estilo1.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="body">
+
+    <h1 class="margenTitulo amarillo fuenteTitulo">SALA 2: EL OTRO HOMBRE DEL FUTURO</h1>
+
+    @if(ViewBag.Error==true){
+        <h3 class="text-center">Te equivocaste!</h3>
+    }
+
+    <p class="margen">
+        Al salir corriendo, entrás en un campo de cultivos, y rápidamente te escondés en una cabaña. Dentro de esta, hay un joven monaguillo. Desesperado, vos le contás sobre tu situación, sin dejarlo responder en ningún momento. Le decís que venís del futuro, que accidentalmente llegaste al templo, y que tenés que volver a tu tiempo.
+        <br>
+        <img class="imgHabitacion margen" src="/imagenes/cabaña.jpg" alt="">
+        <br><br>
+
+        Al terminar de hablar, el monaguillo se queda callado. Finalmente, te responde:
+
+        <br><br>
+
+        “Atrocidades generales y catastróficas azotaron al mundo durante toda la historia. Particularmente, <span class="gris">la caída de dos grandes pilares hermanos</span> aterrorizó familias, dañó la economía, y marcó un antes y un después en la ejecución de la violencia globalizada."
+        
+        <br>
+        <img class="imgHabitacion margen" src="/imagenes/torres.jpg" alt="">
+
+    </p>
+
+    @if (@Escape.Errores >= 3)
+    {
+        <details class="margen">
+            <summary>Pista 1</summary>
+            <p class="cursiva">Ese septiembre fue desastroso, ¿o no?</p>
+        </details>
+    }
+
+    @if (@Escape.Errores >= 4)
+    {
+
+        <details>
+            <summary>Pista 2</summary>
+            <p class="cursiva">¿Por qué no el número de la policía, también?</p>
+        </details>   
+
+    }
+
+    @if (@Escape.Errores >= 5)
+    {
+
+        <details>
+            <summary>SOLUCIÓN</summary>
+            <p class="cursiva">11/9/2001</p>
+        </details>   
+
+    }
+
+    <form class="margen" method="post" action='@Url.Action("Habitacion", "Escape")'>
+        <p>"Si de verdad vienes del futuro, <span class="gris">¿de qué fecha estoy hablando?</span>”.</p> 
+        <input type="date" name="clave" autocomplete="off"  required size=25 maxlength="10" style="color:grey"> <br>
+        <input type="hidden" name="sala" value='@ViewBag.Sala' >
+        <br>
+        <input type="submit" value="Validar" class="btn btn-warning" style="width: 300px;">
+        <input type="reset" value="Restablecer" class="btn btn-secondary" style="width: 300px;">
+
+    </form>   
+
+    
+</body>
+</html>
+

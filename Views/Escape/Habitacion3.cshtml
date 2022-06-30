@@ -1,0 +1,78 @@
+@{
+    ViewData["Title"] = "Habitacion3";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/estilos/estilo1.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="body">
+
+
+    <h1 class="margenTitulo amarillo fuenteTitulo">SALA 3: SONÓ LA CANCIÓN</h1>
+
+    @if(ViewBag.Error==true){
+        <h3 class="text-center">Te equivocaste!</h3>
+    }
+
+    <p class="margen">
+
+    Así, te enteras que el monaguillo también viene de tu tiempo. Y de esta forma, deciden aliarse para volver al futuro. Entre los dos, descubren que para reiniciar el funcionamiento del aparato, necesitan ingresar una contraseña.
+    Pero acomodando tu reloj, tocas un boton accidentalmente, y repentinamente suena una <span class="gris">música programada para sonar en caso de emergencia.</span>
+
+    <br>
+    <img class="imgHabitacion margen" src="/imagenes/reloj.jpg" alt="">
+    </p>
+
+    <audio src="/audio.mp3" controls="" autoplay="true" hidden="true"></audio>
+
+    
+    @if (@Escape.Errores >= 3)
+    {
+        <details class="margen">
+            <summary>Pista 1</summary>
+            <p class="cursiva">¿Cómo es el amor?</p>
+        </details>
+    }
+
+    @if (@Escape.Errores >= 4)
+    {
+
+        <details>
+            <summary>Pista 2</summary>
+            <p class="cursiva">Libro de Rubén Dario.</p>
+        </details> 
+
+    }
+
+    @if (@Escape.Errores >= 5)
+    {
+
+        <details>
+            <summary>SOLUCIÓN</summary>
+            <p class="cursiva">azul</p>
+        </details> 
+
+    }
+     
+
+    <form class="margen" method="post" action='@Url.Action("Habitacion", "Escape")'>
+        <p> ¿Qué es esta canción? o... <span class="gris">¿Con qué color se relaciona?</span></p>
+        <input class="form-control" type="text" name="clave" autocomplete="off"  required size=25 maxlength="10" placeholder="Ingrese la clave..."> <br>
+        <input type="hidden" name="sala" value='@ViewBag.Sala' >
+        <br>
+        <input type="submit" value="Validar" class="btn btn-warning" style="width: 300px;">
+        <input type="reset" value="Restablecer" class="btn btn-secondary" style="width: 300px;">
+
+    </form>
+
+    
+</body>
+</html>
+

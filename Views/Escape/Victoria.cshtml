@@ -1,0 +1,45 @@
+@{
+    ViewData["Title"] = "Victoria";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/estilos/estilo1.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="body">
+
+    <audio src="/sonidoResultado.mp3" controls="" autoplay="true" hidden="true"></audio>    
+    
+    <h1 class="margenTitulo amarillo">FELICIDADES @Escape.NombreJugador.ToUpper(), ¡VICTORIA!</h1>
+    <h2 class="centrar">Lograste volver a tu Tiempo</h2>
+    <div class="margen centrar">
+        <h4 class="naranja"> Intentos Extra: @ViewBag.IntentosExtra </h4>
+        <h4 class="naranja"> Pistas Extra: @ViewBag.PistasExtra </h4>
+        <h4 class="naranja"> Tiempo de Juego: @ViewBag.Segundos segundos </h4>
+    </div>
+    
+
+    <p class="centrar margen">
+        Luego de pasar por una experiencia cuanto menos rara, conseguista regresar a tu presente. No hay más sacerdotes, no hay más templo.
+        Solo facilidad y armonía.
+        
+        <br><br>
+        Sin embargo, mirás a tu alrededor. Observás, pensás... <span class="amarillo"> Y ves que falta el monaguillo.</span>
+        <br><br>
+        ¿Se habrá quedado en el pasado?¿No pudo volver con vos? Pero no es demasiado tarde.
+        <span class="gris">¡Compartí este juego a tus amigos, para que ellos vuelvan e intenten salvarlo!</span>
+        <br><br>
+        <a target="_blank" href="https://www.instagram.com/riverplate/?hl=es"><img class="redes" src="/imagenes/instagram.png" alt=""></a>
+        <a target="_blank" href="https://es-la.facebook.com/riverplateoficial/"><img class="redes" src="/imagenes/facebook.png" alt=""></a>
+        <br><br><br><br>
+    </p>
+    
+</body>
+</html>
+
